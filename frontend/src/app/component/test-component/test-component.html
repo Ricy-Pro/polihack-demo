@@ -1,15 +1,40 @@
-<h1 class="text-3xl font-bold underline text-red-600">
-  Hello world!
-</h1>
-<p>
-  Visit <a href="https://angular.dev/" target="_blank" rel="noopener">angular.dev</a> to read the
-  documentation
-</p>
+<div class="p-5">
+  <h1 class="text-3xl font-bold mb-4">Polihack Demo: Hybrid Architecture</h1>
 
-<p-button label="Call Spring Boot API" (onClick)="fetchMessage()"></p-button>
+  <div class="flex gap-3 mb-6">
+    <p-button
+      label="Call Kotlin (ngrok)"
+      icon="pi pi-bolt"
+      severity="danger"
+      (onClick)="fetchKotlin()">
+    </p-button>
 
-@if (backendMessage) {
-  <div class="mt-4 p-4 border-2 border-blue-400 bg-blue-50 text-blue-900 rounded">
-    <strong>Backend says:</strong> {{ backendMessage }}
+    <p-button
+      label="Call Supabase (Cloud)"
+      icon="pi pi-cloud"
+      severity="success"
+      (onClick)="fetchSupabase()">
+    </p-button>
   </div>
-}
+
+  <div class="grid">
+    <div class="col-6">
+      @if (kotlinMessage) {
+        <div class="p-4 border-round border-1 border-red-400 bg-red-50 text-red-900">
+          <strong>Kotlin Server:</strong> {{ kotlinMessage }}
+        </div>
+      }
+    </div>
+
+    <div class="col-6">
+      @if (supabaseMessage) {
+        <div class="p-4 border-round border-1 border-green-400 bg-green-50 text-green-900">
+          <strong>Supabase Cloud:</strong> {{ supabaseMessage }}
+        </div>
+      }
+      @if (errorMessage) {
+        <div class="p-4 bg-orange-100 text-orange-700 border-round">{{ errorMessage }}</div>
+      }
+    </div>
+  </div>
+</div>
