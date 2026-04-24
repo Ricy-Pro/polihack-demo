@@ -1,0 +1,15 @@
+<h1 class="text-3xl font-bold underline text-red-600">
+  Hello world!
+</h1>
+<p>
+  Visit <a href="https://angular.dev/" target="_blank" rel="noopener">angular.dev</a> to read the
+  documentation
+</p>
+
+<p-button label="Call Spring Boot API" (onClick)="fetchMessage()"></p-button>
+
+@if (backendMessage) {
+  <div class="mt-4 p-4 border-2 border-blue-400 bg-blue-50 text-blue-900 rounded">
+    <strong>Backend says:</strong> {{ backendMessage }}
+  </div>
+}
